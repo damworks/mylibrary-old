@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d97aefd7241768bcec172ed653739e51",
+    "content-hash": "50fb67fd67f084003030568aafb1edd6",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1655,6 +1655,71 @@
             "time": "2025-01-24T11:45:48+00:00"
         },
         {
+            "name": "dragonmantank/cron-expression",
+            "version": "v3.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dragonmantank/cron-expression.git",
+                "reference": "8c784d071debd117328803d86b2097615b457500"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dragonmantank/cron-expression/zipball/8c784d071debd117328803d86b2097615b457500",
+                "reference": "8c784d071debd117328803d86b2097615b457500",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2|^8.0",
+                "webmozart/assert": "^1.0"
+            },
+            "replace": {
+                "mtdowling/cron-expression": "^1.0"
+            },
+            "require-dev": {
+                "phpstan/extension-installer": "^1.0",
+                "phpstan/phpstan": "^1.0",
+                "phpunit/phpunit": "^7.0|^8.0|^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Cron\\": "src/Cron/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Tankersley",
+                    "email": "chris@ctankersley.com",
+                    "homepage": "https://github.com/dragonmantank"
+                }
+            ],
+            "description": "CRON for PHP: Calculate the next or previous run date and determine if a CRON expression is due",
+            "keywords": [
+                "cron",
+                "schedule"
+            ],
+            "support": {
+                "issues": "https://github.com/dragonmantank/cron-expression/issues",
+                "source": "https://github.com/dragonmantank/cron-expression/tree/v3.4.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/dragonmantank",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-10-09T13:47:03+00:00"
+        },
+        {
             "name": "egulias/email-validator",
             "version": "4.0.4",
             "source": {
@@ -1720,6 +1785,50 @@
                 }
             ],
             "time": "2025-03-06T22:45:56+00:00"
+        },
+        {
+            "name": "elements/process-manager-bundle",
+            "version": "v6.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/valantic-at/ProcessManager.git",
+                "reference": "a515bad22d26f5608c34f176925979d6dc68d098"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/valantic-at/ProcessManager/zipball/a515bad22d26f5608c34f176925979d6dc68d098",
+                "reference": "a515bad22d26f5608c34f176925979d6dc68d098",
+                "shasum": ""
+            },
+            "require": {
+                "dragonmantank/cron-expression": "^v3.1.0",
+                "php": "~8.3.0 || ~8.4.0",
+                "pimcore/pimcore": "^12.0"
+            },
+            "type": "pimcore-bundle",
+            "extra": {
+                "pimcore": {
+                    "bundles": [
+                        "Elements\\Bundle\\ProcessManagerBundle\\ElementsProcessManagerBundle"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Elements\\Bundle\\ProcessManagerBundle\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "description": "The Process Manager allows you to manage (define,execute...) arbitrary processes/commands in the Pimcore backend.",
+            "homepage": "https://www.valantic.at/",
+            "support": {
+                "issues": "https://github.com/valantic-at/ProcessManager/issues",
+                "source": "https://github.com/valantic-at/ProcessManager/tree/v6.0.1"
+            },
+            "time": "2025-08-19T11:23:35+00:00"
         },
         {
             "name": "endroid/qr-code",
