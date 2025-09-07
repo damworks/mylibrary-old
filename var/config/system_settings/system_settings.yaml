@@ -3,20 +3,20 @@ pimcore:
         domain: ''
         redirect_to_maindomain: false
         valid_languages:
+            - it_IT
             - en
             - de
             - fr
-            - it_IT
         fallback_languages:
-            en: ''
-            de: ''
-            fr: ''
             it_IT: ''
+            en: 'it_IT'
+            de: 'it_IT'
+            fr: 'it_IT'
         required_languages:
+            - it_IT
             - en
             - de
             - fr
-            - it_IT
         default_language: it_IT
         debug_admin_translations: false
     documents:
@@ -26,6 +26,7 @@ pimcore:
         error_pages:
             default: ''
             localized:
+                it_IT: ''
                 en: ''
                 de: ''
                 fr: ''
