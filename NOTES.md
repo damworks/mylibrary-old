@@ -29,10 +29,14 @@ add in config/bundles.php:
 Elements\Bundle\ProcessManagerBundle\ElementsProcessManagerBundle::class => ['all' => true],
 $ bin/docker console pimcore:bundle:install ElementsProcessManagerBundle
 ############### PROCESS MANAGER end
+```
 
+### Database migration
 
+```bash
+bin/docker console doctrine:migration:migrate
+```
 
-
-
-
+```bash
+bin/docker console pimcore:deployment:classes-rebuild --create-classes -d -f
 ```
