@@ -19,7 +19,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
    'title' => '',
    'description' => '',
    'creationDate' => NULL,
-   'modificationDate' => 1757258126,
+   'modificationDate' => 1757259416,
    'userOwner' => 2,
    'userModification' => 2,
    'parentClass' => '',
@@ -218,7 +218,7 @@ return \Pimcore\Model\DataObject\ClassDefinition::__set_state(array(
                 array (
                 ),
                  'labelWidth' => 0,
-                 'localized' => false,
+                 'localized' => true,
                  'storeId' => 1,
                  'hideEmptyData' => true,
                  'disallowAddRemove' => false,
