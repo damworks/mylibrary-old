@@ -23,7 +23,7 @@ class HealthCheckController extends AbstractController
         //$applicationLogger->debug('Test Debug', ['debugTest'=>'debugValue']);
 
         $mail = new Mail();
-        $mail->setDocument('test-mail');
+        $mail->setDocument('/email/test-mail');
         $mail->send();
 
         return $this->json(['status' => 'ok']);
