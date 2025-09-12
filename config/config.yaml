@@ -82,13 +82,15 @@ pimcore:
 #        proxy_port: ''
 #        proxy_user: ''
 #        proxy_pass: ''
-#    email:
-#        sender:
-#            name: 'Pimcore Demo'
-#            email: demo@pimcore.com
-#        return:
-#            name: ''
-#            email: ''
+    email:
+        sender:
+            name: '%env(resolve:EMAIL_SENDER_DISPLAYNAME)%'
+            email: '%env(resolve:EMAIL_SENDER_ADDRESS)%'
+        return:
+            name: '%env(resolve:EMAIL_REPLYTO_DISPLAYNAME)%'
+            email: '%env(resolve:EMAIL_REPLYTO_ADDRESS)%'
+        debug:
+            email_addresses: '%env(resolve:EMAIL_DEBUG_ADDRESS)%'
 
 #    applicationlog:
 #        mail_notification:
@@ -122,10 +124,10 @@ framework:
 #        handler_id: null
 
 #### SYMFONY MAILER TRANSPORTS
-#    mailer:
-#        transports:
-#            main: smtp://user:pass@smtp.example.com:port
-#            pimcore_newsletter: smtp://user:pass@smtp.example.com:port
+    mailer:
+        transports:
+            main:  '%env(EMAIL_TRANSPORT)%'
+            pimcore_newsletter: '%env(EMAIL_TRANSPORT)%'
 
 # pimcore_newsletter:
 #     default_url_prefix: 'https://my-host.com' # default prefix for your static assets

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Pimcore\Bundle\ApplicationLoggerBundle\ApplicationLogger;
+use Pimcore\Mail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,6 +21,11 @@ class HealthCheckController extends AbstractController
         $applicationLogger->info('Health check endpoint from IP: ' . $ip);
         //$applicationLogger->error('ERROR');
         //$applicationLogger->debug('Test Debug', ['debugTest'=>'debugValue']);
+
+        $mail = new Mail();
+        $mail->setDocument('test-mail');
+        $mail->send();
+
         return $this->json(['status' => 'ok']);
     }
 }
