@@ -87,8 +87,8 @@ pimcore:
             name: '%env(resolve:EMAIL_SENDER_DISPLAYNAME)%'
             email: '%env(resolve:EMAIL_SENDER_ADDRESS)%'
         return:
-            name: '%env(resolve:EMAIL_REPLYTO_DISPLAYNAME)%'
-            email: '%env(resolve:EMAIL_REPLYTO_ADDRESS)%'
+            name: '' #'%env(resolve:EMAIL_REPLYTO_DISPLAYNAME)%'
+            email: '' #'%env(resolve:EMAIL_REPLYTO_ADDRESS)%'
         debug:
             email_addresses: '%env(resolve:EMAIL_DEBUG_ADDRESS)%'
 
