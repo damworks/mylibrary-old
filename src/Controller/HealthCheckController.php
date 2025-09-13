@@ -24,6 +24,9 @@ class HealthCheckController extends AbstractController
         //$applicationLogger->debug('Test Debug', ['debugTest'=>'debugValue']);
 
         $mail = new Mail();
+
+        $mail->setIgnoreDebugMode(true);
+
         $mail->setDocument('/email/test-mail');
         $mail->setParams([
             'ip'      => $ip ?: 'IP non trovato',
