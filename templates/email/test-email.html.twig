@@ -1,12 +1,16 @@
 {# templates/email/test-email.html.twig #}
-<doctype html>
+<!doctype html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <title>Test Email</title>
 </head>
-<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px;">
+<body>
+{# Se c'è un WYSIWYG nel Document, stampalo in RAW #}
+{% set htmlEditable = pimcore_wysiwyg('body')|default('') %}
+{% if htmlEditable|trim %}
+    {{ htmlEditable|raw }}
+{% else %}
     <div style="max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 5px;">
         <h2 style="color: #333;">Hello,</h2>
         <p style="color: #555;">This is a test email sent from our Symfony application.</p>
@@ -14,5 +18,6 @@
         <br>
         <p style="color: #999; font-size: 12px;">&copy; {{ "now"|date("Y") }} Your Company. All rights reserved.</p>
     </div>
+{% endif %}
 </body>
 </html>
