@@ -17,6 +17,7 @@ class HealthCheckController extends AbstractController
         ApplicationLogger $applicationLogger
     ): JsonResponse
     {
+        $year = date('Y');
         $ip = $request->getClientIp();
         $applicationLogger->info('Health check endpoint from IP: ' . $ip);
         //$applicationLogger->error('ERROR');
@@ -24,6 +25,10 @@ class HealthCheckController extends AbstractController
 
         $mail = new Mail();
         $mail->setDocument('/email/test-mail');
+        $mail->setParams([
+            'ip'      => $ip ?: 'IP non trovato',
+            'year'    => $year
+        ]);
         $mail->send();
 
         return $this->json(['status' => 'ok']);
