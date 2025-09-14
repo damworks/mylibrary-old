@@ -1,0 +1,27 @@
+framework:
+  messenger:
+    failure_transport: failed
+
+    transports:
+      # Pimcore "core" jobs
+      pimcore_core: '%env(MESSENGER_TRANSPORT_DSN)%?auto_setup=1&queue_name=pimcore_core'
+      # maintenance
+      pimcore_maintenance: '%env(MESSENGER_TRANSPORT_DSN)%?auto_setup=1&queue_name=pimcore_maintenance'
+      # scheduled tasks
+      pimcore_scheduled_tasks: '%env(MESSENGER_TRANSPORT_DSN)%?auto_setup=1&queue_name=pimcore_scheduled_tasks'
+      # image optimization
+      pimcore_image_optimize: '%env(MESSENGER_TRANSPORT_DSN)%?auto_setup=1&queue_name=pimcore_image_optimize'
+      # assets update (webdav/preview etc.)
+      pimcore_asset_update: '%env(MESSENGER_TRANSPORT_DSN)%?auto_setup=1&queue_name=pimcore_asset_update'
+
+      # failure transport on DB ("failed" queue)
+      failed: '%env(MESSENGER_FAILURE_TRANSPORT_DSN)%?auto_setup=1&queue_name=failed'
+
+      testAsyncQueue:
+        dsn: '%env(MESSENGER_TRANSPORT_DSN)%'
+        options:
+          table_name: testAsyncQueue
+          queue_name: testAsyncQueue
+
+    routing:
+      App\Message\TestMessage: testAsyncQueue
