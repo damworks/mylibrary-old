@@ -1,0 +1,15 @@
+# config/packages/pimcore_admin.yaml
+pimcore_admin:
+    branding:
+        #color_admin_interface: '#004080'
+        #color_admin_interface_background: '#f5f5f5'
+        #color_login_screen: '#004080'
+        login_screen_invert_colors: false
+        login_screen_custom_image: '/library-bookstore.jpg'
+
+# Available options are
+#    color_admin_interface              # main color
+#    color_admin_interface_background   # backend background color
+#    color_login_screen                 # login color (titles, buttons)
+#    login_screen_custom_image          # if true → light text on dark background
+#    login_screen_invert_colors         # background image path (public/...)
