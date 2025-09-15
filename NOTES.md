@@ -40,3 +40,27 @@ bin/docker console doctrine:migration:migrate
 ```bash
 bin/docker console pimcore:deployment:classes-rebuild --create-classes -d -f
 ```
+
+### Messages
+
+```bash
+bin/console cache:clear
+bin/console debug:config framework messenger   # verify that transports.testAsyncQueue appears
+bin/console messenger:setup-transports         # create the testAsyncQueue table
+bin/console debug:messenger                    # messages can be dispatched
+
+# start the worker
+bin/console messenger:consume testAsyncQueue -vv
+
+# to test the queue, in another terminal window run:
+#payload as string
+curl -X POST http://localhost/api/queue/test \
+  -H 'Content-Type: application/json' \
+  -d '{"payload":"ciao mondo"}'
+
+#payload as array
+#curl -X POST http://localhost/api/queue/test \
+#  -H 'Content-Type: application/json' \
+#  -d '{"payload":{"message":"ciao mondo"}}'
+#-d '{"payload":{"foo":"bar","n":123}}'
+``` 
