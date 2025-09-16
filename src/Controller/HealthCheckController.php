@@ -27,7 +27,7 @@ class HealthCheckController extends AbstractController
 
         $mail->setIgnoreDebugMode(true);
 
-        $mail->setDocument('/email/test-mail');
+        $mail->setDocument('/email-templates/email_test');
         $mail->setParams([
             'ip'      => $ip ?: 'IP non trovato',
             'year'    => $year
