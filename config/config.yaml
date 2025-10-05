@@ -118,11 +118,11 @@ framework:
                 default_lifetime: 604800  # 7 days #31536000  # 1 year
                 adapter: cache.adapter.redis_tag_aware
                 # Redis DNS, see: https://symfony.com/doc/current/components/cache/adapters/redis_adapter.html#configure-the-connection
-                provider: '%env(REDIS_PROVIDER)%/%env(REDIS_DB_PIMCORE)%'
+                provider: '%env(REDIS_DNS)%/%env(REDIS_DB_PIMCORE)%'
 
 #### USE SESSION HANDLER CONFIGURED IN php.ini
     session:
-        handler_id: '%env(REDIS_PROVIDER)%/%env(REDIS_DB_SESSION)%'
+        handler_id: '%env(REDIS_DNS)%/%env(REDIS_DB_SESSION)%'
         save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'  # fallback when no handler_id is set
         cookie_lifetime: 86400
         gc_maxlifetime: 86400
