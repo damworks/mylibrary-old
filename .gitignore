@@ -18,6 +18,7 @@
 !config/local/database.yaml
 !config/local/product_registration.yaml
 
+/cache/
 /var/*
 !/var/.gitkeep
 !/var/classes/
