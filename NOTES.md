@@ -1,4 +1,30 @@
 ```bash
+
+## install  
+$ git checkout develop
+$ docker compose up -d
+$ docker compose exec php composer install  
+  
+# IMPORT db  
+$ sudo docker compose cp database/initial-pimcore-dump.sql.gz db:/application  
+  
+$ docker exec -it bbf498c003c3 /bin/bash  
+o  
+$ docker compose exec -it db /bin/bash  
+root@bbf498c003c3:/application# gunzip initial-pimcore-dump.sql.gz  
+root@bbf498c003c3:/application# mysql -uroot -p pimcore < initial-pimcore-dump.sql  
+
+$ docker compose exec php bin/console pimcore:bundle:list
+$ docker compose exec php bin/console pimcore:bundle:install PimcoreDataHubBundle
+                                                             PimcoreApplicationLoggerBundle
+                                                             ElementsProcessManagerBundle
+
+$ docker compose exec php bin/console pimcore:deployment:classes-rebuild --create-classes  
+$ docker compose exec php bin/console doctrine:migrations:migrate  
+  (se errori con bundle ElementsProcessManagerBundle fare uninstall e poi install di nuovo)
+$ docker compose exec php bin/console assets:install --symlink --relative  
+$ docker compose exec php bin/console cache:clear
+
 ## commands
 $ docker compose exec php-fpm php bin/console cache:clear
 $ bin/docker console cache:clear
@@ -29,9 +55,6 @@ add in config/bundles.php:
 Elements\Bundle\ProcessManagerBundle\ElementsProcessManagerBundle::class => ['all' => true],
 $ bin/docker console pimcore:bundle:install ElementsProcessManagerBundle
 ############### PROCESS MANAGER end
-
-
-
 
 
 
